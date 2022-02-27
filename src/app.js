@@ -28,14 +28,15 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about', {
-    title: 'About Me',
+    title: 'About',
     name: 'Huzefa',
   });
 });
 
 app.get('/help', (req, res) => {
   res.render('help', {
-    helpText: 'This is some helpful text.',
+    helpText:
+      'This is a simple app that tell you the weather at the location you search for.',
     title: 'Help',
     name: 'Huzefa',
   });
@@ -57,17 +58,6 @@ app.get('/weather', (req, res) => {
       if (error) return res.send({ error });
       else return res.send({ location, forecast, address });
     });
-  });
-});
-
-app.get('/products', (req, res) => {
-  if (!req.query.search) {
-    return res.send({
-      error: 'You must provide a search term!!',
-    });
-  }
-  res.send({
-    products: [],
   });
 });
 
